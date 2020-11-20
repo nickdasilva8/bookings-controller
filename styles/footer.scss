@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+footer {
+  background-color: $dark-blue;
+  padding: 1rem 0;
+  color: $cream;
+
+  nav {
+    span {
+      &:not(:last-child) {
+        &:after {
+          content: ' | ';
+        }
+      }
+    }
+
+    a {
+      color: $cream;
+      font-size: 1rem;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
