@@ -1,2 +1,27 @@
+@import './variables.scss';
 @import './header.scss';
 @import './footer.scss';
+
+@import './page-one.scss';
+
+.main-body {
+  h1 {
+    color: $dark-blue;
+  }
+
+  label {
+    color: $dark-blue;
+  }
+
+  a.btn.btn-custom {
+    color: white;
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+
+    &:hover {
+      color: white;
+      background-color: $blue;
+      border-color: $blue;
+    }
+  }
+}

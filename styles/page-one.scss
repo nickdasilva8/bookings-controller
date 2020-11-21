@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+label {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.summary {
+  color: $cream;
+  background-color: $dark-blue;
+  border-radius: 30px;
+  p span {
+    font-weight: 700;
+    font-size: 1.2 rem;
+    color: $light-blue;
+  }
+}

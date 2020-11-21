@@ -15,7 +15,9 @@ const Footer = () => {
                 <a href="#">Terms and Conditions</a>
               </span>
               <span>
-                <a href="#">Woodhouse</a>
+                <a target="_blank" href="https://youtu.be/eUrkWecExwo?t=47">
+                  Woodhouse
+                </a>
               </span>
             </nav>
           </Col>
