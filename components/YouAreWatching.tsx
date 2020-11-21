@@ -16,7 +16,6 @@ const YouAreWatching: React.FC<IOwnProps> = observer((props) => {
   const selectedFilm = films.filter(({ id }) => id === filmChoice)[0];
 
   const readableDate = dayjs(selectedDate).format('dddd (DD-MMM-YYYY)');
-  console.log('fuck off', { selectedDate, readableDate });
 
   return (
     <div className="summary mb-5 p-5">

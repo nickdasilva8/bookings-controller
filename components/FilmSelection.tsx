@@ -7,8 +7,7 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
-  Button
+  FormText
 } from 'reactstrap';
 import { observer } from 'mobx-react-lite';
 import DayPicker from 'react-day-picker';
@@ -24,7 +23,7 @@ import 'react-day-picker/lib/style.css';
 interface IOwnProps {
   store?: IStore;
   title: string;
-  linkTo: string;
+  linkForward: string;
 }
 
 const FilmSelection: React.FC<IOwnProps> = observer((props) => {
@@ -36,15 +35,6 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
     selectDate,
     selectedDate
   } = useStore('');
-
-  films.map(({ id, name }) => console.log('hello here ', { id, name }));
-
-  // useEffect(() => {
-  //   start();
-  //   return () => {
-  //     stop();
-  //   };
-  // }, [start, stop]);
 
   const filmsList = [];
   const showingTimes = [];
@@ -137,12 +127,7 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
       <Row>
         <Col sm={12} md={6}>
           <div className="text-right">
-            <Link href={props.linkTo}>
-              <a className="btn btn-custom pull-right" role="button">
-                TOP
-              </a>
-            </Link>{' '}
-            <Link href={props.linkTo}>
+            <Link href={props.linkForward}>
               <a className="btn btn-custom pull-right" role="button">
                 Continue
               </a>

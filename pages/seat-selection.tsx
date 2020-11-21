@@ -1,12 +1,14 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import FilmSelection from '../components/FilmSelection';
+import SeatSelection from '../components/SeatSelection';
 
-export default function SeatSelection() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default function SeatSelectionPage() {
   return (
     <>
       <Header />
-      <FilmSelection title="Pick a seat" linkTo="/" />
+      <SeatSelection title="Pick a seat" linkForward="/" linkPrevious="/" />
 
       <Footer />
     </>

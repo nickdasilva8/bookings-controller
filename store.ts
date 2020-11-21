@@ -97,7 +97,6 @@ const Store = types
     };
 
     return { start, stop, update, setFilmChoice, selectDate, setFilmTime };
-    // return { start, stop, update };
   });
 
 export type IStore = Instance<typeof Store>;
