@@ -19,6 +19,7 @@
     "react-dom": "16.13.1",
     "reactstrap": "^8.7.1",
     "sass": "^1.29.0",
+    "superagent": "^6.1.0",
     "typescript": "^3.0.1"
   },
   "devDependencies": {

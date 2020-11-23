@@ -4,9 +4,11 @@ import {
   Instance,
   SnapshotIn,
   SnapshotOut,
-  types
+  types,
+  flow
 } from 'mobx-state-tree';
 import { type } from 'os';
+import { getAllFilms } from './client/films';
 
 let store: IStore | undefined;
 
@@ -25,7 +27,7 @@ interface Film {
 const tempFilms = [
   {
     id: '1',
-    name: 'The Grinch',
+    name: '11 The Grinch',
     showingTimes: [
       '10:00am',
       '11:30am',
@@ -39,12 +41,39 @@ const tempFilms = [
   },
   {
     id: '2',
-    name: 'Happy Gilmore',
+    name: '22 Happy Gilmore',
     showingTimes: ['10:15am', '12:15am', '2:15m', '4:15pm', '6:15pm', '8:15pm']
   },
   {
     id: '3',
-    name: 'Ragnarok',
+    name: '33 Ragnarok',
+    showingTimes: ['10:30am', '1:30pm', '4:30pm', '7:30pm']
+  }
+];
+
+const tempFilms2 = [
+  {
+    id: '1',
+    name: 'zzz The Grinch',
+    showingTimes: [
+      '10:00am',
+      '11:30am',
+      '1:00pm',
+      '2:30pm',
+      '4:00pm',
+      '5:30pm',
+      '7:00pm',
+      '8:30pm'
+    ]
+  },
+  {
+    id: '2',
+    name: 'zzz Happy Gilmore',
+    showingTimes: ['10:15am', '12:15am', '2:15m', '4:15pm', '6:15pm', '8:15pm']
+  },
+  {
+    id: '3',
+    name: 'zzz Ragnarok',
     showingTimes: ['10:30am', '1:30pm', '4:30pm', '7:30pm']
   }
 ];
@@ -69,6 +98,7 @@ const Store = types
         (self as any).update();
       }, 1000);
     };
+
     const update = () => {
       self.lastUpdate = new Date(Date.now());
       self.light = true;
@@ -96,7 +126,29 @@ const Store = types
       self.selectedTime = time;
     };
 
-    return { start, stop, update, setFilmChoice, selectDate, setFilmTime };
+    const getFilms = flow(function* getFilms() {
+      try {
+        const response = yield getAllFilms();
+
+        setFilms(response);
+      } catch (err) {
+        console.error('Failed getting Films', err);
+      }
+    });
+
+    const setFilms = (films: any) => {
+      self.films = films;
+    };
+
+    return {
+      start,
+      stop,
+      update,
+      setFilmChoice,
+      selectDate,
+      setFilmTime,
+      setFilms
+    };
   });
 
 export type IStore = Instance<typeof Store>;

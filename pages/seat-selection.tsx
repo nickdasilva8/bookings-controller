@@ -9,7 +9,6 @@ export default function SeatSelectionPage() {
     <>
       <Header />
       <SeatSelection title="Pick a seat" linkForward="/" linkPrevious="/" />
-
       <Footer />
     </>
   );

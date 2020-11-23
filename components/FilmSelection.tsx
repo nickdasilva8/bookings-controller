@@ -121,7 +121,7 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
           </Form>
         </Col>
         <Col sm={12} md={6}>
-          <YouAreWatching />
+          {/* <YouAreWatching /> */}
         </Col>
       </Row>
       <Row>
