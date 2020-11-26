@@ -1,8 +1,8 @@
-import { getAllFilms } from '../../client/films';
+import { getAllFilmsWithTimes } from '../../client/films';
 
 export default async function handler(req, res) {
   try {
-    const films = await getAllFilms();
+    const films = await getAllFilmsWithTimes();
 
     if (!films) throw undefined;
 

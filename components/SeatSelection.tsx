@@ -47,9 +47,13 @@ const SeatSelection: React.FC<IOwnProps> = observer((props) => {
                 selecting yours.
               </FormText>
 
-              <p>something</p>
-              <p>something</p>
-              <p>something</p>
+              {/* <Input
+                type="select"
+                name="films-list"
+                id="films-list"
+                onChange={(e) => selectFilm(e)}>
+                {filmsList}
+              </Input> */}
             </FormGroup>
           </Form>
         </Col>

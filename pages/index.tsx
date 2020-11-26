@@ -1,6 +1,6 @@
 import { getSnapshot, applySnapshot } from 'mobx-state-tree';
 
-import { getAllFilms } from '../client/films';
+import { getAllFilmsWithTimes } from '../client/films';
 import { initializeStore } from '../store';
 
 import Header from '../components/Header';
@@ -23,7 +23,7 @@ export default function Home() {
 // that is because the page becomes a serverless function instead of being statically
 // exported when you use `getServerSideProps` or `getInitialProps`
 export async function getServerSideProps() {
-  const films = await getAllFilms();
+  const films = await getAllFilmsWithTimes();
   const store = initializeStore();
 
   await store.setFilms(films);

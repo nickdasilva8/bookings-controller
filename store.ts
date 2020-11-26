@@ -7,8 +7,6 @@ import {
   types,
   flow
 } from 'mobx-state-tree';
-import { type } from 'os';
-import { getAllFilms } from './client/films';
 
 let store: IStore | undefined;
 
@@ -109,10 +107,14 @@ const Store = types
     };
 
     // workout how to get TS types to work with store model type
-    const setFilmChoice = (filmId: string) => {
-      // self.filmChoice = tempFilms[2];
+    const setFilmChoice = (usersFilmChoice: string) => {
+      const [filmId, arrayPosition] = usersFilmChoice.split('-');
 
+      // set the film ID
       self.filmChoice = filmId;
+      // set the time to the first time in the array
+      // ToDo :: You could do something and check the time and select the next available time from now to improve the UX.
+      self.selectedTime = self.films[arrayPosition].showingTimes[0];
     };
 
     const selectDate = (date: Date, modifiers: any = {}) => {
@@ -125,16 +127,6 @@ const Store = types
     const setFilmTime = (time: string) => {
       self.selectedTime = time;
     };
-
-    const getFilms = flow(function* getFilms() {
-      try {
-        const response = yield getAllFilms();
-
-        setFilms(response);
-      } catch (err) {
-        console.error('Failed getting Films', err);
-      }
-    });
 
     const setFilms = (films: any) => {
       self.films = films;

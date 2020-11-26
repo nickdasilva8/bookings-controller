@@ -48,9 +48,9 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
   };
 
   // list films
-  films.forEach((film) =>
+  films.forEach((film, index) =>
     filmsList.push(
-      <option key={film.id} value={film.id}>
+      <option key={film.id} value={`${film.id}-${index}`}>
         {film.name}
       </option>
     )
@@ -70,6 +70,7 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
   });
 
   // get date 7 days in the future
+  // this should come from the client's config file
   const limit = 7;
   const date = new Date();
   const daysInTheFuture = date.setTime(
@@ -121,7 +122,7 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
           </Form>
         </Col>
         <Col sm={12} md={6}>
-          {/* <YouAreWatching /> */}
+          <YouAreWatching />
         </Col>
       </Row>
       <Row>
