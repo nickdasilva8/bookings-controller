@@ -34,10 +34,12 @@ interface Film {
   showingTimes: string[];
 }
 
+// I ran into issues with trying to get the default blob to be the first value it gets from the API call when
+// initializeStore() is called.
 export const tempFilms = [
   {
     id: '1',
-    name: '11 The Grinch',
+    name: 'Frozen',
     showingTimes: [
       '10:00am',
       '11:30am',
@@ -62,7 +64,7 @@ export const tempFilms = [
 ];
 
 const Store = types
-  .model('NickStore', {
+  .model('BookingStore', {
     filmChoice: types.optional(types.string, ''),
     films: types.array(FilmModel),
     selectedTime: types.optional(types.string, ''),
