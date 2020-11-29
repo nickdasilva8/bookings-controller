@@ -2,6 +2,11 @@
 
 - `yarn`
 - `yarn dev`
+  - this will spin up the site on "http://localhost:3000".
+
+---
+
+---
 
 ---
 
