@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'reactstrap';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -11,7 +12,9 @@ const Header = () => {
             <meta property="og:title" content="House of Reel" key="title" />
           </Head>
           <Col md={12}>
-            <h1>House of Reel</h1>
+            <h1>
+              <Link href="/">House of Reel</Link>
+            </h1>
             <p>Films, films and more films.</p>
           </Col>
         </Row>

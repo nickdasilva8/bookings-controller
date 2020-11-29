@@ -89,6 +89,7 @@ const FilmSelection: React.FC<IOwnProps> = observer((props) => {
                 type="select"
                 name="films-list"
                 id="films-list"
+                defaultValue={1}
                 onChange={(e) => selectFilm(e)}>
                 {filmsList}
               </Input>

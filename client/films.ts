@@ -7,6 +7,7 @@ export const getAllFilmsWithTimes = async (): Promise<any> => {
   try {
     const outcome = await get(`${serviceUrl}/films/list-with-time`);
 
+    // I usually assign the parsed value so it can be logged as debug or modified further by the controller
     const parsedOutcome = JSON.parse(outcome?.text);
 
     return parsedOutcome;
@@ -25,10 +26,16 @@ export const getAllSeatsByFilmAndTime = async (
     const outcome = await get(`${serviceUrl}/films/${filmId}/${timeSlot}`);
     const parsedOutcome = JSON.parse(outcome?.text);
 
-    return parsedOutcome;
+    // ToDo :: This is the cause of an issue where if you lock a set, refresh the page you are then locked out of your seat.
+    // ToDo :: There should be a way to make mobx value its existing state before  merging selected into it.
+    const modifiedOutcomeForUi = parsedOutcome.map((seat) => {
+      seat.selected = false;
+      return seat;
+    });
+
+    return modifiedOutcomeForUi;
   } catch (err) {
     console.error('There was an error in getAllSeatsByFilmAndTime()', err);
-    // not throwing here, so that the function can be called without wrapping it in a try/catch
     return undefined;
   }
 };

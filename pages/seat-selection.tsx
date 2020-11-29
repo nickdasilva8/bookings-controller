@@ -8,7 +8,11 @@ export default function SeatSelectionPage() {
   return (
     <>
       <Header />
-      <SeatSelection title="Pick a seat" linkForward="/" linkPrevious="/" />
+      <SeatSelection
+        title="Pick a seat"
+        linkForward="/confirmation"
+        linkPrevious="/"
+      />
       <Footer />
     </>
   );

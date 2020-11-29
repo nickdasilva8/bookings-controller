@@ -4,4 +4,12 @@ header {
   background-color: $dark-blue;
   padding: 1rem 0;
   color: $cream;
+  h1 a {
+    color: $cream;
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }
