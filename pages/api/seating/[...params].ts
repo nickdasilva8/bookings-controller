@@ -29,13 +29,17 @@ export default async function handler(req, res) {
       query: { params }
     } = req;
     try {
-      let films = await getAllSeatsByFilmAndTime(params[0], params[1]);
+      let films = await getAllSeatsByFilmAndTime(
+        params[0],
+        params[1],
+        params[2]
+      );
 
       if (!films) throw undefined;
 
       res.status(200).send(films);
     } catch (err) {
-      const message = `Error getting all seats for film '${params[0]}' at ${params[1]}.`;
+      const message = `Error getting all seats for film '${params[0]}' at ${params[1]} on ${params[2]}.`;
 
       console.error(message, err);
       // log the error above, and return a simple message to the client (in the network tab)

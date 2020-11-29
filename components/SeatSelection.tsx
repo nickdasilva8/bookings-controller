@@ -23,14 +23,18 @@ const SeatSelection: React.FC<IOwnProps> = observer((props) => {
     selectSeat,
     filmChoice,
     selectedTime,
-    seatsForTime
+    seatsForTime,
+    selectedDate
   } = useStore('');
 
   const secondsToMilliseconds = (seconds: number) => seconds * 1000;
 
   // this handles getting new data in intervals.
-  const { data, error } = useSWR(
-    `/api/films/${filmChoice}/${selectedTime}`,
+  const {
+    data,
+    error
+  } = useSWR(
+    `/api/films/${filmChoice}/${selectedTime}/${selectedDate}`,
     fetcher,
     { refreshInterval: secondsToMilliseconds(30) }
   );
@@ -63,7 +67,7 @@ const SeatSelection: React.FC<IOwnProps> = observer((props) => {
     lockedState: string
   ) => {
     try {
-      await fetch(`/api/seating/${seatPosition}/${lockedState}`, {
+      await fetch(`/api/seating/${seatPosition}/${lockedState}/`, {
         credentials: 'include',
         method: 'PUT'
       });

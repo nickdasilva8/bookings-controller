@@ -34,7 +34,7 @@ export const putSeatingStatus = async (
 
     return true;
   } catch (err) {
-    console.error('There was an error in getAllFilmsWithTimes()', err);
+    console.error('There was an error in putSeatingStatus()', err);
     // not throwing here, so that the function can be called without wrapping it in a try/catch
     return false;
   }

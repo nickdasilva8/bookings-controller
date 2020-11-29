@@ -4,8 +4,9 @@ export default async function handler(req, res) {
   const {
     query: { params }
   } = req;
+
   try {
-    let films = await getAllSeatsByFilmAndTime(params[0], params[1]);
+    let films = await getAllSeatsByFilmAndTime(params[0], params[1], params[2]);
 
     if (!films) throw undefined;
 

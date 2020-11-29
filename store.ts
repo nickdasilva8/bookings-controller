@@ -1,14 +1,12 @@
 import { useMemo } from 'react';
+
 import {
   applySnapshot,
   Instance,
   SnapshotIn,
   SnapshotOut,
-  types,
-  flow
+  types
 } from 'mobx-state-tree';
-
-import { getAllSeatsByFilmAndTime } from './client/films';
 
 let store: IStore | undefined;
 

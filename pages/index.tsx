@@ -1,4 +1,5 @@
 import { getSnapshot } from 'mobx-state-tree';
+import dayjs from 'dayjs';
 
 import { getAllFilmsWithTimes } from '../client/films';
 import { initializeStore } from '../store';
@@ -20,7 +21,8 @@ export default function Home() {
 }
 
 export async function getServerSideProps() {
-  const films = await getAllFilmsWithTimes();
+  const today = dayjs().format('YYYY-MM-DD');
+  const films = await getAllFilmsWithTimes(today);
 
   const store = initializeStore(null);
 

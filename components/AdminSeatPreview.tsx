@@ -28,14 +28,18 @@ const AdminSeatPreview: React.FC<IOwnProps> = observer((props) => {
     selectSeat,
     filmChoice,
     selectedTime,
-    seatsForTime
+    seatsForTime,
+    selectedDate
   } = useStore('');
 
   const secondsToMilliseconds = (seconds: number) => seconds * 1000;
 
   // this handles getting new data in intervals.
-  const { data, error } = useSWR(
-    `/api/films/${filmChoice}/${selectedTime}`,
+  const {
+    data,
+    error
+  } = useSWR(
+    `/api/films/${filmChoice}/${selectedTime}/${selectedDate}`,
     fetcher,
     { refreshInterval: secondsToMilliseconds(30) }
   );
@@ -57,9 +61,12 @@ const AdminSeatPreview: React.FC<IOwnProps> = observer((props) => {
     lockedState: string
   ) => {
     try {
-      await fetch(`/api/seating/${seatPosition}/${lockedState}`, {
-        credentials: 'include'
-      });
+      await fetch(
+        `/api/seating/${seatPosition}/${lockedState}/${selectedDate}`,
+        {
+          credentials: 'include'
+        }
+      );
     } catch (err) {
       console.error('Error updating seat selection');
       // you can do something in the UI here, I'm just failing silently.
