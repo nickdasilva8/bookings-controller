@@ -90,6 +90,7 @@ const Store = types
       if (modifiers?.disabled) {
         return;
       }
+
       self.selectedDate = date;
     };
 

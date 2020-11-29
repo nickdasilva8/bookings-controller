@@ -1,15 +1,7 @@
 import React, { useEffect } from 'react';
 import useSWR from 'swr';
 import { fetcher } from '../client/fetcher';
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  FormGroup,
-  Label,
-  FormText
-} from 'reactstrap';
+import { Container, Row, Col, Label, FormText } from 'reactstrap';
 import { observer } from 'mobx-react-lite';
 import Link from 'next/link';
 
@@ -72,7 +64,8 @@ const SeatSelection: React.FC<IOwnProps> = observer((props) => {
   ) => {
     try {
       await fetch(`/api/seating/${seatPosition}/${lockedState}`, {
-        credentials: 'include'
+        credentials: 'include',
+        method: 'PUT'
       });
     } catch (err) {
       console.error('Error updating seat selection');

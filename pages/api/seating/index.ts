@@ -1,4 +1,4 @@
-import { postBooking } from '../../../client/seating';
+import { postBooking, putSeatingStatus } from '../../../client/seating';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -16,6 +16,4 @@ export default async function handler(req, res) {
       return res.status(err?.status ?? 500).send('Error booking seats.');
     }
   }
-
-  return res.sendStatus(405);
 }

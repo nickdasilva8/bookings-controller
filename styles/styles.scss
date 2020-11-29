@@ -27,3 +27,49 @@
     }
   }
 }
+
+ul {
+  padding-left: 0;
+  li {
+    list-style-type: none;
+  }
+  span {
+    &.key {
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 5px;
+      &.available {
+        background-color: $button-available;
+        &::after {
+          margin-left: 1.5rem;
+          content: 'Available';
+        }
+      }
+      &.unavailable {
+        background-color: $button-unavailable;
+        &::after {
+          margin-left: 1.5rem;
+          content: 'Unavailable';
+        }
+      }
+    }
+  }
+}
+
+.seat-row {
+  text-align: center;
+
+  button.seat-preview {
+    pointer-events: none;
+
+    &.available:hover {
+      background-color: $button-available;
+      border-color: $button-available;
+    }
+    &.unavailable:hover {
+      background-color: $button-unavailable;
+      border-color: $button-unavailable;
+    }
+  }
+}

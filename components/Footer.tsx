@@ -1,4 +1,5 @@
 import { Container, Row, Col } from 'reactstrap';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -13,6 +14,11 @@ const Footer = () => {
               </span>
               <span>
                 <a href="#">Terms and Conditions</a>
+              </span>
+              <span>
+                <Link href="admin">
+                  <a>Admin</a>
+                </Link>
               </span>
               <span>
                 <a target="_blank" href="https://youtu.be/eUrkWecExwo?t=47">

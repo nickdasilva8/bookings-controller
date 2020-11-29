@@ -4,7 +4,7 @@ import Confirmation from '../components/Confirmation';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home() {
+export default function ConfirmationPage() {
   return (
     <>
       <Header />
